@@ -1,6 +1,6 @@
-import axiosClient from '../axios';
+import axiosClient from '../axios.js';
 
-export function login ({commit}, data) {
+export function login ({ commit }, data) {
     return axiosClient.post('/login', data)
         .then(({ data }) => {
             commit('setUser', data.user);
@@ -9,10 +9,15 @@ export function login ({commit}, data) {
         });
 }
 
-export function logout () {
+export function logout ({ commit }) {
     return axiosClient.post('/logout')
         .then((response) => {
+            console.log(response);
             commit('setToken', null);
+
             return response;
+        })
+        .catch(( response ) => {
+            console.log(response);
         });
 }

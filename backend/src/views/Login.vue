@@ -2,6 +2,8 @@
   import { ref } from 'vue';
   import GuestLayout from '../components/GuestLayout.vue';
   import store from '../store/index.js';
+  import router from '../router/index.js';
+
 
   const loading = ref(false);
   const errorMsg = ref('');
@@ -11,6 +13,7 @@
       password: '',
       remember: false,
   };
+
   function login() {
     loading.value = true;
     store.dispatch('login', user)
