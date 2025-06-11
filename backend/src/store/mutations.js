@@ -1,8 +1,10 @@
-export function setUser (state, user) {
+export function setUser (state, user) 
+{
     state.user.data = user;
 }
 
-export function setToken(state, token) {
+export function setToken(state, token) 
+{
     state.user.token = token;
     if (token) {
         sessionStorage.setItem('TOKEN', token);
@@ -10,3 +12,4 @@ export function setToken(state, token) {
         sessionStorage.removeItem('TOKEN');
     }
 }
+

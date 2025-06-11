@@ -12,7 +12,6 @@ export function login ({ commit }, data) {
 export function logout ({ commit }) {
     return axiosClient.post('/logout')
         .then((response) => {
-            console.log(response);
             commit('setToken', null);
 
             return response;
@@ -20,4 +19,12 @@ export function logout ({ commit }) {
         .catch(( response ) => {
             console.log(response);
         });
+}
+
+export function getUser ({ commit }) {
+    return axiosClient.get('/user')
+    .then(response => {
+        commit('setUser', response.data);
+        return response;
+    });
 }
